@@ -32,6 +32,9 @@ data:
           "etcd_scheme": "https",
           {{- end }}
           "log_level": "info",
+          {{- if .Networking.Calico.MTU }}
+          "mtu": {{- or .Networking.Calico.MTU }},
+          {{- end }}
           "ipam": {
             "type": "calico-ipam"
           },
